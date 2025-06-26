@@ -9,5 +9,3 @@
 *DURATION*: 4 WEEEKS
 
 *MENTOR*: ...
-
-![Image](https://github.com/user-attachments/assets/a1866a10-c0e9-4bc0-a3e9-1cb9186c078c)
