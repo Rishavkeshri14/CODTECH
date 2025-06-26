@@ -1,193 +1,93 @@
-# 📌 CNN for Image Classification using TensorFlow (CIFAR-10 dataset)
+#CNN for Image Classification using TensorFlow
 
-
+#Step 1: Import Required Libraries
 
 import tensorflow as tf
-
 from tensorflow.keras import layers, models
-
-from tensorflow.keras.datasets import cifar10
-
-from tensorflow.keras.utils import to_categorical
-
 import matplotlib.pyplot as plt
-
 import numpy as np
 
-import seaborn as sns
+#Step 2: Load and Preprocess the CIFAR-10 Dataset
 
-from sklearn.metrics import classification_report, confusion_matrix
-
-
-
-# Step 1: Load and Preprocess Data
-
-(x_train, y_train), (x_test, y_test) = cifar10.load_data()
-
-
+# Load CIFAR-10 dataset
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
 
 # Normalize pixel values
+x_train, x_test = x_train / 255.0, x_test / 255.0
 
-x_train = x_train.astype('float32') / 255.0
-
-x_test  = x_test.astype('float32') / 255.0
-
-
-
-# One-hot encode labels
-
-y_train_cat = to_categorical(y_train, 10)
-
-y_test_cat = to_categorical(y_test, 10)
-
-
-
-# Class names for CIFAR-10
-
+# Class names
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
-
                'dog', 'frog', 'horse', 'ship', 'truck']
 
-
-
-# Step 2: Build CNN Model
+#Step 3: Build the CNN Model
 
 model = models.Sequential([
-
     layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)),
-
     layers.MaxPooling2D((2, 2)),
 
-    
-
     layers.Conv2D(64, (3, 3), activation='relu'),
-
     layers.MaxPooling2D((2, 2)),
 
-
-
     layers.Conv2D(64, (3, 3), activation='relu'),
-
-    
 
     layers.Flatten(),
-
     layers.Dense(64, activation='relu'),
-
-    layers.Dense(10, activation='softmax')
-
+    layers.Dense(10)  # 10 classes
 ])
 
-
-
-# Step 3: Compile Model
+#Step 4: Compile the Model
 
 model.compile(optimizer='adam',
-
-              loss='categorical_crossentropy',
-
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
 
+#Step 5: Train the Model
 
+history = model.fit(x_train, y_train, epochs=10,
+                    validation_data=(x_test, y_test))
 
-# Step 4: Train Model
+#Step 6: Evaluate the Model
 
-history = model.fit(x_train, y_train_cat, epochs=10, 
+test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
+print("\nTest Accuracy:", test_acc)
 
-                    validation_data=(x_test, y_test_cat),
+#Step 7: Plot Accuracy and Loss
 
-                    batch_size=64)
+plt.figure(figsize=(12, 5))
 
-
-
-# Step 5: Evaluate Model
-
-test_loss, test_acc = model.evaluate(x_test, y_test_cat, verbose=2)
-
-print(f"\n✅ Test Accuracy: {test_acc:.4f}")
-
-
-
-# Step 6: Plot Accuracy & Loss Curves
-
-plt.figure(figsize=(12, 4))
-
-
-
+# Accuracy Plot
 plt.subplot(1, 2, 1)
-
-plt.plot(history.history['accuracy'], label="Train Accuracy")
-
-plt.plot(history.history['val_accuracy'], label="Val Accuracy")
-
-plt.title("Model Accuracy")
-
-plt.xlabel("Epoch")
-
-plt.ylabel("Accuracy")
-
+plt.plot(history.history['accuracy'], label='Train Acc')
+plt.plot(history.history['val_accuracy'], label='Val Acc')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
 plt.legend()
+plt.title('Model Accuracy')
 
-
-
+# Loss Plot
 plt.subplot(1, 2, 2)
-
-plt.plot(history.history['loss'], label="Train Loss")
-
-plt.plot(history.history['val_loss'], label="Val Loss")
-
-plt.title("Model Loss")
-
-plt.xlabel("Epoch")
-
-plt.ylabel("Loss")
-
+plt.plot(history.history['loss'], label='Train Loss')
+plt.plot(history.history['val_loss'], label='Val Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
 plt.legend()
-
-
-
-plt.tight_layout()
+plt.title('Model Loss')
 
 plt.show()
 
+#Optional: Predict and Visualize
 
+probability_model = tf.keras.Sequential([model, tf.keras.layers.Softmax()])
+predictions = probability_model.predict(x_test)
 
-# Step 7: Confusion Matrix & Classification Report
-
-y_pred = model.predict(x_test)
-
-y_pred_classes = np.argmax(y_pred, axis=1)
-
-y_true = y_test.flatten()
-
-
-
-# Confusion Matrix
-
-cm = confusion_matrix(y_true, y_pred_classes)
-
-plt.figure(figsize=(10, 8))
-
-sns.heatmap(cm, annot=True, fmt='d', cmap="YlGnBu",
-
-            xticklabels=class_names,
-
-            yticklabels=class_names)
-
-plt.xlabel("Predicted")
-
-plt.ylabel("Actual")
-
-plt.title("Confusion Matrix")
-
-plt.tight_layout()
-
+# Display some predictions
+plt.figure(figsize=(10, 4))
+for i in range(5):
+    plt.subplot(1, 5, i + 1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(x_test[i])
+    plt.xlabel(class_names[np.argmax(predictions[i])])
+plt.suptitle("Sample Predictions")
 plt.show()
-
-
-
-# Classification Report
-
-print("\n📊 Classification Report:\n")
-
-print(classification_report(y_true, y_pred_classes, target_names=class_names))
