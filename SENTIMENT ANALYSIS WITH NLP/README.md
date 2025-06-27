@@ -14,7 +14,42 @@
 
 *MENTOR*: ...
 
-##YOU HAVE TO ENTER DESCRIOTON OF YOUR TASK (AND IT SHOULD NOT BE LESS THAN 500 WORDS)
+💬 3. Sentiment Analysis with TF-IDF + Logistic Regression
+
+📘 Overview
+
+This project performs sentiment analysis on customer reviews using TF-IDF vectorization and Logistic Regression. It demonstrates how to convert raw text into numerical form and build a binary classifier for text sentiment (positive/negative).
+
+🚀 Features
+
+Text cleaning and preprocessing (regex, lowercasing, punctuation removal)
+
+Feature extraction using TF-IDF
+
+Train-test split and model building with Logistic Regression
+
+Evaluation with accuracy, precision, recall, F1-score, and confusion matrix
+
+Function to predict sentiment of custom review input
+
+
+🧪 Technologies Used
+
+Scikit-learn
+
+Pandas, NumPy
+
+TF-IDF Vectorizer
+
+Matplotlib & Seaborn
+
+
+🔧 How to Run
+
+git clone https://github.com/your-username/sentiment-analysis-logreg.git
+cd sentiment-analysis-logreg
+jupyter notebook sentiment_analysis_tfidf.ipynb
+
 
 #OUTPUT
 
