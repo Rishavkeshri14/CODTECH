@@ -14,7 +14,39 @@ DURATION: 4 WEEEKS
 
 MENTOR: ...
 
-##YOU HAVE TO ENTER DESCRIOTON OF YOUR TASK (AND IT SHOULD NOT BE LESS THAN 500 WORDS)
+🖼️ 2. CNN Image Classifier (TensorFlow)
+
+📘 Overview
+
+This repository contains a complete implementation of a Convolutional Neural Network (CNN) using TensorFlow/Keras to classify images from the CIFAR-10 dataset. The project introduces deep learning for computer vision tasks.
+
+🚀 Features
+
+CNN architecture with Conv2D, MaxPooling, and Dense layers
+
+Train on 50,000 CIFAR-10 images
+
+Visualize accuracy and loss curves
+
+Predict and display sample classifications
+
+
+🧪 Technologies Used
+
+TensorFlow / Keras
+
+Python
+
+Matplotlib
+
+CIFAR-10 dataset
+
+
+🔧 How to Run
+
+git clone https://github.com/your-username/cnn-image-classifier.git
+cd cnn-image-classifier
+jupyter notebook cnn_classifier_tensorflow.ipynb
 
 #OUTPUT
 
