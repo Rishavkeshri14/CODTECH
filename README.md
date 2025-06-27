@@ -14,8 +14,9 @@
 
 1. Decision Tree Classifier with Scikit-learn
 
-2. Convolutional Neural Network (CNN) for Image Classification
+2. Sentiment Analysis using TF-IDF and Logistic Regression
 
-3. Sentiment Analysis using TF-IDF and Logistic Regression
+3. Convolutional Neural Network (CNN) for Image Classification
 
 4. Movie Recommendation System using Collaborative Filtering (SVD)
+
