@@ -14,7 +14,7 @@ DURATION: 4 WEEEKS
 
 MENTOR: ...
 
-🎥 4. Recommendation System with Collaborative Filtering (SVD)
+🎥 Recommendation System with Collaborative Filtering (SVD)
 
 📘 Overview
 
