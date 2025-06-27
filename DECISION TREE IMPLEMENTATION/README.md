@@ -14,7 +14,7 @@
 
 *MENTOR*: ...
 
-🧩 1. Decision Tree Classifier (Scikit-learn)
+🧩 Decision Tree Classifier (Scikit-learn)
 
 📘 Overview
 
