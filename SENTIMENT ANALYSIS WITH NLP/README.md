@@ -14,7 +14,7 @@
 
 *MENTOR*: ...
 
-💬 3. Sentiment Analysis with TF-IDF + Logistic Regression
+💬 Sentiment Analysis with TF-IDF + Logistic Regression
 
 📘 Overview
 
