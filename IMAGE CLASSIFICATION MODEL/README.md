@@ -14,7 +14,7 @@ DURATION: 4 WEEEKS
 
 MENTOR: ...
 
-🖼️ 2. CNN Image Classifier (TensorFlow)
+🖼️ CNN Image Classifier (TensorFlow)
 
 📘 Overview
 
