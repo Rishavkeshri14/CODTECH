@@ -9,3 +9,13 @@
 *DURATION*: 4 WEEEKS
 
 *MENTOR*: ...
+
+##This repository includes the following tasks:
+
+1. Decision Tree Classifier with Scikit-learn
+
+2. Convolutional Neural Network (CNN) for Image Classification
+
+3. Sentiment Analysis using TF-IDF and Logistic Regression
+
+4. Movie Recommendation System using Collaborative Filtering (SVD)
