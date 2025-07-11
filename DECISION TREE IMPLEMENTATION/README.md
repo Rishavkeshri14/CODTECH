@@ -50,4 +50,5 @@ jupyter notebook decision_tree_classifier.ipynb
 
 #OUTPUT
 
-[img]
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/5dc1b6c6-14b5-4a7a-a293-c71bed02e55a" />
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/ea86179a-b9f6-4568-a836-26eed16e8df5" />
