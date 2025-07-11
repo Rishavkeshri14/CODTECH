@@ -53,5 +53,5 @@ jupyter notebook sentiment_analysis_tfidf.ipynb
 
 #OUTPUT
 
-[img]
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/23a19e3c-b58b-468a-a7cb-2fe7d67e981a" />
 
